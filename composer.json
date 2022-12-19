@@ -1,0 +1,13 @@
+//our project have been transformed here
+/*
+*if file or directory is not found on thee server then all traffic has been routed to our
+*index.php script. "the requested file, the requested file directory"
+*/
+/*back end and front end communicating through ajax (in the video flightPHP 28:500)*/
+
+/*JSON: relational representation of our data*/
+{
+    "require": {
+        "mikecao/flight": "^2.0"
+    }
+}
