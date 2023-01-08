@@ -11,7 +11,16 @@
     .error {
       color: red;
       position: inherit !important;
-    } 
+    }
+
+    .custom-container-border {
+      border: 3px solid grey;
+      border-radius: 0.7rem;
+    }
+
+    .custom-shelf-border {
+      border-bottom: 3px solid grey;
+    }
   </style>
 </head>
 
@@ -21,23 +30,43 @@
 
     <div class="container mt-3">
       <div class="row">
-        <div name="Contacts col" class="col-4">
-          <div class="row">
-            <div name="Account col" class="col">
-              <a href="#" class="d-block link-dark text-decoration-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                  class="bi bi-person-circle" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                  <path fill-rule="evenodd"
-                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                </svg>
-              </a>
+        <div name="Contacts col" class="col-4 px-0">
+          <div class="container custom-container-border">
+            <div name="Account row" class="row custom-shelf-border py-2">
+              <div class="col">
+                <a href="#" class="d-block link-dark text-decoration-none">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                    class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path fill-rule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                  </svg>
+                </a>
+              </div>
             </div>
-            <div name="" class="col"></div>
-            <div name="" class="col"></div>
+            <div name="Contact list row" class="row py-2">
+              <div id="contact-list-col" name="Contact list col" class="col">
+
+                <!-- <div id="contact-1" name="Contact Item" class="card btn text-start mb-1" style="background-color: azure;">
+                  <div class="card-body py-2 px-0">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col">
+                          <p class="fs-5 mb-1">Enes Ekrem</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+              </div>
+            </div>
           </div>
         </div>
         <div name="Chat col" class="col-8">
+          <div class="container custom-container-border" style="height: 100%;">
+            
+          </div>
         </div>
       </div>
     </div>
@@ -58,15 +87,18 @@
             <div class="modal-body">
               <div class="form" style="max-height: 90px;">
                 <label for="floatingInput">Email address</label>
-                <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                  required>
               </div>
               <div class="form" style="max-height: 90px;">
                 <label for="floatingPassword">Password</label>
-                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                  required>
               </div>
             </div>
             <div class="modal-footer">
-              <div id="login-modal-spinner" class="spinner-border" role="status" style="position: absolute; left: 50%; display: none;">
+              <div id="login-modal-spinner" class="spinner-border" role="status"
+                style="position: absolute; left: 50%; display: none;">
                 <span class="visually-hidden">Loading...</span>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
@@ -86,6 +118,8 @@
 
     <!-- services folder -->
     <script src="./services/User.js"></script>
+    <script src="./services/Contact.js"></script>
+    <script src="./services/Message.js"></script>
   </import>
 
   <script>

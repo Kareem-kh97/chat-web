@@ -9,11 +9,21 @@
 Flight::route('GET /contacts', function(){
   // who is the user who calls this method?
   $user = Flight::get('user');
+  // Flight::json(["message" => "Hi from service ".implode(" ",$user)], 404);
   // $search = Flight::query('search');
-  $search = NULL;
   // Flight::json(["message" => "Hi "], 404);
 
-  Flight::json(Flight::contactService()->get_user_contacts($user, $search));
+  Flight::json(Flight::contactService()->get_user_contacts($user));
+});
+
+Flight::route('GET /contacts/@id', function($id){
+  // who is the user who calls this method?
+  $user = Flight::get('user');
+  // Flight::json(["message" => "Hi from service ".implode(" ",$user)], 404);
+  // $search = Flight::query('search');
+  // Flight::json(["message" => "Hi "], 404);
+
+  Flight::json(Flight::contactService()->get_user_contact_messages($user, $id));
 });
 
 /**

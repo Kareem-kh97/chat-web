@@ -14,10 +14,16 @@ class ContactService extends BaseService
     $this->user_dao = new UserDao();
   }
 
-  public function get_user_contacts($user, $search = NULL)
+  public function get_user_contacts($user)
   {
 
-    Flight::json(["message" => "Hi "], 404);
-    return $this->dao->get_user_contacts($user['id'], $search);
+    // Flight::json(["message" => "Hi from service ".implode(" ",$user)], 404);
+    return $this->dao->get_user_contacts($user['id']);
+  }
+  public function get_user_contact_messages($user, $contactId)
+  {
+
+    // Flight::json(["message" => "Hi from service ".implode(" ",$user)], 404);
+    return $this->dao->get_user_contact_messages($user['id'], $contactId);
   }
 }
