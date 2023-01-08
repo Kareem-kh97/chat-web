@@ -1,22 +1,25 @@
 <?php
 require_once __DIR__.'/BaseDao.class.php';
 
-class NoteDao extends BaseDao{
+class ContactDao extends BaseDao{
 
   /**
   * constructor of dao class
   */
   public function __construct(){
-    parent::__construct("notes");
+    parent::__construct("contacts");
   }
 
-  public function get_user_notes($user_id, $search = NULL){
-    
-  Flight::json(["message" => "Hi "], 404);
+  public function get_user_contacts($user_id, $search = NULL){
   //  return $this->query("SELECT * FROM notes WHERE user_id = :user_id", ['user_id' => $user_id]);
-    // $query = "(SELECT n.*
-    // FROM notes n JOIN shared_notes sn ON n.id = sn.note_id AND sn.user_id = :user_id
-    // ";
+    $query = "(SELECT n.*
+    FROM notes n JOIN shared_notes sn ON n.id = sn.note_id AND sn.user_id = :user_id
+    ";
+    $query = `SELECT u.first_name, u.last_name, u.email, u.status
+    FROM users u
+    JOIN contacts c ON c.user_id = u.id
+    WHERE u.id IN (SELECT cs.contact_id FROM contacts cs WHERE cs.user_id = :user_id)
+    `;
     // if (isset($search)){
     //   $query .= " AND n.name LIKE '%".$search."%'";
     // }
@@ -33,7 +36,7 @@ class NoteDao extends BaseDao{
 
     // $query .=")";
 
-    // return $this->query($query, ['user_id' => $user_id]);
+    return $this->query($query, ['user_id' => $user_id]);
   }
 
   public function get_by_id($id){

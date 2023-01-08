@@ -6,14 +6,14 @@
  *         @OA\Response( response=200, description="List of notes.")
  * )
  */
-Flight::route('GET /notes', function(){
+Flight::route('GET /contacts', function(){
   // who is the user who calls this method?
   $user = Flight::get('user');
   // $search = Flight::query('search');
   $search = NULL;
   // Flight::json(["message" => "Hi "], 404);
 
-  Flight::json(Flight::noteService()->get_user_contacts($user, $search));
+  Flight::json(Flight::contactService()->get_user_contacts($user, $search));
 });
 
 /**

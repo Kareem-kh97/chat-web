@@ -14,6 +14,23 @@ class UserDao extends BaseDao{
     return $this->query_unique("SELECT * FROM users WHERE email = :email", ['email' => $email]);
   }
 
+  
+  public function signup($entity){
+    $query = "INSERT INTO users (";
+    foreach ($entity as $column => $value) {
+      $query .= $column . ", ";
+    }
+    $query = substr($query, 0, -2);
+    $query .= ") VALUES (";
+    foreach ($entity as $column => $value) {
+      $query .= ":" . $column . ", ";
+    }
+    $query = substr($query, 0, -2);
+    $query .= ")";
+    return $this->query_entity($query, $entity);
+  }
+  
+
 }
 
 ?>

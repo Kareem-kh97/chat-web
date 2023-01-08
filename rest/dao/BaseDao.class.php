@@ -90,6 +90,14 @@ class BaseDao{
     $results = $this->query($query, $params);
     return reset($results);
   }
+  
+  protected function query_entity($query, $entity)
+  {
+    $stmt = $this->conn->prepare($query);
+    $stmt->execute($entity);
+    $entity['id'] = $this->conn->lastInsertId();
+    return $entity;
+  }
 
 }
 

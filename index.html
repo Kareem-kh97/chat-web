@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chat App</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
+  <style>
+    .error {
+      color: red;
+      position: inherit !important;
+    } 
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div name="Contacts col" class="col-4">
+          <div class="row">
+            <div name="Account col" class="col">
+              <a href="#" class="d-block link-dark text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                  class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                  <path fill-rule="evenodd"
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                </svg>
+              </a>
+            </div>
+            <div name="" class="col"></div>
+            <div name="" class="col"></div>
+          </div>
+        </div>
+        <div name="Chat col" class="col-8">
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <modals>
+    <!-- Modal -->
+    <div id="login-modal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="login-modal-label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="login-modal-label">Login</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="login-form">
+            <div class="modal-body">
+              <div class="form" style="max-height: 90px;">
+                <label for="floatingInput">Email address</label>
+                <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+              </div>
+              <div class="form" style="max-height: 90px;">
+                <label for="floatingPassword">Password</label>
+                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div id="login-modal-spinner" class="spinner-border" role="status" style="position: absolute; left: 50%; display: none;">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </modals>
+
+  <import>
+    <!-- js folder -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <!-- services folder -->
+    <script src="./services/User.js"></script>
+  </import>
+
+  <script>
+
+  </script>
+
+</body>
+
+</html>

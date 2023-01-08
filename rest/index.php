@@ -8,12 +8,16 @@ use Firebase\JWT\Key;
 
 require_once __DIR__.'/../vendor/autoload.php';
 require_once __DIR__.'/services/NoteService.class.php';
+require_once __DIR__.'/services/ContactService.class.php';
 require_once __DIR__.'/services/TodoService.class.php';
+require_once __DIR__.'/services/UserService.class.php';
 require_once __DIR__.'/dao/UserDao.class.php';
 
 Flight::register('userDao', 'UserDao');
 Flight::register('todoService', 'TodoService');
 Flight::register('noteService', 'NoteService');
+Flight::register('contactService', 'ContactService');
+Flight::register('userService', 'UserService');
 
 Flight::map('error', function(Exception $ex){
     // Handle error
@@ -30,7 +34,7 @@ Flight::map('query', function($name, $default_value = NULL){
 
 // middleware method for login
 Flight::route('/*', function(){
-  //return TRUE;
+  return TRUE;
   //perform JWT decode
   $path = Flight::request()->url;
   if ($path == '/login' || $path == '/docs.json') return TRUE; // exclude login route from middleware
@@ -60,6 +64,7 @@ Flight::route('GET /docs.json', function(){
 
 require_once __DIR__.'/routes/TodoRoutes.php';
 require_once __DIR__.'/routes/NoteRoutes.php';
+require_once __DIR__.'/routes/ContactRoutes.php';
 require_once __DIR__.'/routes/UserRoutes.php';
 
 Flight::start();
